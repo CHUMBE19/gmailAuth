@@ -20,10 +20,10 @@
 	</div>
 
 	<p>
-		The <span class="exact">y</span> is in the right place. <span class="close">r</span> and
+		La <span class="exact">y</span> está en el lugar correcto. <span class="close">r</span> y
 		<span class="close">t</span>
-		are the right letters, but in the wrong place. The other letters are wrong, and can be discarded.
-		Let's make another guess:
+		son las letras correctas, pero en el lugar equivocado. Las otras letras están equivocadas y pueden descartarse.
+		Hagamos otra suposición:
 	</p>
 
 	<div class="example">
@@ -34,13 +34,15 @@
 		<span class="exact">y</span>
 	</div>
 
-	<p>This time we guessed right! You have <strong>six</strong> guesses to get the word.</p>
+	<p>¡Esta vez acertamos! Tienes <strong>6</strong> conjeturas para entender la palabra.</p>
 
 	<p>
-		Unlike the original Wordle, Sverdle runs on the server instead of in the browser, making it
-		impossible to cheat. It uses <code>&lt;form&gt;</code> and cookies to submit data, meaning you can
-		even play with JavaScript disabled!
+		A diferencia del Wordle original, Sverdle se ejecuta en el servidor en lugar de en el navegador, lo que lo hace
+		imposible de engañar. Usa <code>&lt;form&gt;</code> y cookies para enviar datos, lo que significa que puedes
+		¡Incluso juega con JavaScript deshabilitado!
 	</p>
+	<p></p>
+	<a href="/sverdle" style="font-size: 1rem;">Back to game</a>
 </div>
 
 <style>

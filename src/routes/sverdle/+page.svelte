@@ -81,6 +81,14 @@
 			.querySelector(`[data-key="${event.key}" i]`)
 			?.dispatchEvent(new MouseEvent('click', { cancelable: true }));
 	}
+
+	const logout = () =>{
+		const link = document.querySelector('a[href="/"]');
+        if (link) {
+          link.click();
+        }
+	}
+
 </script>
 
 
@@ -186,7 +194,7 @@
 			</div>
 		{/if}
 	</div>
-	<div class="btn d-flex gap-3 border border-black rounded px-3 py-2 align-items-center mt-3">
+	<div class="btn d-flex gap-3 border border-black rounded px-3 py-2 align-items-center mt-3" on:click={logout}>
 		<div class="d-flex align-items-center">
 			<img src="logout.png" alt="logout" style="height: 2rem; margin-right: 5px;">
 			<a class="logout" href="/">Logout</a>

@@ -14,8 +14,6 @@
 	let password="";
 	let username = "";
 	let token = "";
-
-	let isSignIn = true;
 	let userSelected = false;
 	let isChecked = false;
 
@@ -30,7 +28,6 @@
 			token=resp.user.accessToken;
 			email=resp.user.email;
 			userSelected = true;
-			isSignIn = false
 		} catch (error) {
 			alert("ERROR: ", error)
 		}
@@ -44,8 +41,9 @@
 		if(!email) {alert("Ingrese el correo"); return}
 		if(!password) {alert("Ingrese la contraseña"); return}
 		if(!isChecked) {alert("Acepte los términos"); return}
+		if(!userSelected) {alert("Credenciales incorrectas"); password = ""; email =""; isChecked=false; return}
 		else alert("Inicio exitoso")
-		
+
 		const link = document.querySelector('a[href="/sverdle"]');
         if (link) {
           link.click();
