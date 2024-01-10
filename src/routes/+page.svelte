@@ -1,11 +1,13 @@
 <script>
 	import {auth} from '../firebase'
-	import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+	import {GoogleAuthProvider, FacebookAuthProvider, signInWithPopup} from 'firebase/auth'
 	import Counter from './Counter.svelte';
 	import { navigate } from 'svelte-routing';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	import { onMount } from 'svelte';
+    import { FirebaseError } from 'firebase/app';
+
 	//import alertify from 'alertifyjs';
 
 	let resp;
@@ -34,11 +36,14 @@
   	};  
 
 	const getFaceUser = async() => {
-		alert("ingreso con facebook pendiente");
+		const provider = new FacebookAuthProvider();
+		console.log("Proveedor: ", provider);
+		let response = await signInWithPopup(auth, provider);
+		console.log("Respuesta de facebook: ", response);
 	}
 
 	const login = () => {
-		if(!email) {alert("Ingrese el correo"); return}
+		if(!email) {alertify.alert("Ingrese el correo"); return}
 		if(!password) {alert("Ingrese la contraseña"); return}
 		if(!isChecked) {alert("Acepte los términos"); return}
 		if(!userSelected) {alert("Credenciales incorrectas"); password = ""; email =""; isChecked=false; return}
@@ -103,7 +108,7 @@
 				<!--button class="btn btn-primary" on:click={login}> <i class="fab fa-google"></i> Continue with Google</button-->
 				<div class="d-flex fw-semibold mt-1.5">Continue with Google</div>
 			</div>
-			<div class="btn d-flex gap-3 border border-gray rounded px-3 py-2 align-items-center mt-3" on:click={getFaceUser}>
+			<div class="btn d-flex gap-3 border border-gray rounded px-3 py-2 align-items-center mt-3" id="login-facebook" on:click={getFaceUser}>
 				<img src="facebook.png" alt="facebook" style="height: 2rem">
 				<div class="d-flex fw-semibold mt-1.5">Continue with Facebook</div>
 			</div>
